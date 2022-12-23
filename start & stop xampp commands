@@ -1,0 +1,11 @@
+To start XAMPP:
+sudo /opt/lampp/lampp start
+
+To stop XAMPP:
+sudo /opt/lampp/lampp stop
+
+To stop XAMPP:
+sudo /opt/lampp/lampp restart
+
+To uninstall XAMPP:
+rm -rf /opt/lampp
