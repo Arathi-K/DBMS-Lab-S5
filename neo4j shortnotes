@@ -1,0 +1,35 @@
+create(e:employee{e.eid=111,e.ename=”John”,e.gender=”male”,e.salary=12000})
+create constraint for (e:employee) require e.eid is unique
+
+create(d:department{Department:”ABC”, Location:”Pune”})
+create constraint for(d:department) require d.Department is unique
+
+
+match(e:employee),(d:department) where e.eid=111 and d.Department=”ABC”
+create (e)-[:belongs_to]->(d)
+return e,d
+
+
+match(e:employee) return count(e)
+
+match(e:employee) return max(e.salary) as max_salary ,min(e.salary) as min_salary
+
+match(e:employee) return sum(e.salary)
+
+match(e:employee)-[r:belongs_to]->(d:department)  return count(r),d
+
+
+match(e:employe) where e.eid=113
+set e.salary=15000
+return e
+
+match(e:employe) where e
+set e.project=133
+return e
+
+match(e:employee{eid:113})
+detach delete e
+return e
+
+match(e:employee)-[r:belongs_to]->(d:department) 
+delete r
